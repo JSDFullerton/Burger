@@ -51,7 +51,7 @@ var burger = require("../models/burger.js");
 
 	
 	// DELETE - remove burger from eaten list
-	router.delete("/:id", function(req.res) {
+	router.delete("/:id", function(req,res) {
 		var condition = "id = " + req.params.id;
 
 		burger.delete(condition, function() {

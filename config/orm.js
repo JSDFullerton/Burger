@@ -7,7 +7,7 @@ var connection = require("../config/connection.js");
 
 
 // ORM FUNCTIONS (?? = table or col, ? = values)
-var = orm = {
+var orm = {
 
 	// SELECT ALL FUNCTION
 		selectAll: function(tableName, cb) {
@@ -31,7 +31,7 @@ var = orm = {
 			queryString += " VALUES ('?', '?')";
 			console.log("Create Burger Query: " + queryString);
 
-			connection.query(queryString, [tableName, cols vals, cb], function(err, result) {
+			connection.query(queryString, [tableName, cols, vals, cb], function(err, result) {
 				
 				console.log(result);
 			

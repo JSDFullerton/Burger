@@ -17,7 +17,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 
 // ROUTE FILES - HTML & API
-
+var routes = require("./controllers/burgers_controller.js");
+app.use("/", routes);
 
 
 

@@ -27,7 +27,7 @@ var burger = {
 			cb(res);
 
 		});// close ORM to burgers table
-	}// close updateOne func.
+	},// close updateOne func.
 
 	delete: function(condition, cb) {
 		orm.delete("burgers", condition, function(res) {

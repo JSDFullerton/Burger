@@ -6,19 +6,19 @@ var connection = mysql.createConnection({
 	host: "localhost",
 	user: "root",
 	password: "",
-	database: "burger_db"
+	database: "burgers_db"
 
 });
 
 // ACTIVATE SQL CONNECTION
-connection.conenct(function(err) {
+connection.connect(function(err) {
 
 	if (err) {
 		console.error("ERROR CONNECTING TO SQL: " + err.stack);
 		return;
 	}
 
-	console.log("SQL CONNECTED AS ID: " + conenction.threadId);
+	console.log("SQL CONNECTED AS ID: " + connection.threadId);
 
 });
 
