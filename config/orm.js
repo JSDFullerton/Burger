@@ -3,9 +3,6 @@ var connection = require("../config/connection.js");
 
 
 
-
-
-
 // ORM FUNCTIONS (?? = table or col, ? = values)
 var orm = {
 
@@ -17,9 +14,14 @@ var orm = {
 
 			connection.query(queryString, [tableName], function(err, result) {
 				
+				if (err) {
+					throw err;
+				}
+
+				cb(result);
 				console.log("SELECT ALL RESULT: " + result);
 			
-			});// close SQL query
+			});// close SELECT ALL SQL query
 		},// close selectAll funct
 
 
@@ -33,9 +35,14 @@ var orm = {
 
 			connection.query(queryString, [tableName, cols, vals, cb], function(err, result) {
 				
+				if (err) {
+					throw err;
+				}
+
+				cb(result);
 				console.log(result);
 			
-			});// close SQL query
+			});// close INSERT NEW SQL query
 		},// close insertOne funct.
 
 
@@ -50,10 +57,35 @@ var orm = {
 
 			connection.query(queryString, [tableName, objColVals, condition, cb], function(err, result) {
 
+				if (err) {
+					throw err;
+				}
+
+				cb(result);
 				console.log(result);
+
 			
-			});// close SQL query
+			});// close UPDATE SQL query
 		}// close updateOne funct
+
+	// DELETE FUNCTION
+		delete: function(tableName, condition, cb) {
+
+			var queryString = "DELETE FROM ?? WHERE ? = ?";
+
+			console.log("DELETE QUUERY STRING: " + queryString);
+
+			connection.query(queryString, [tableName, condition, cb], function(err, result) {
+
+				if (err) {
+					throw err;
+				}
+
+				cb(result);
+				console.log(result)
+
+			})// close DELETE SQL query
+		}// close delete func
 
 }// close ORM Func
 
