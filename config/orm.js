@@ -66,7 +66,7 @@ var orm = {
 
 			
 			});// close UPDATE SQL query
-		}// close updateOne funct
+		},// close updateOne funct
 
 	// DELETE FUNCTION
 		delete: function(tableName, condition, cb) {
