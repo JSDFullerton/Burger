@@ -13,12 +13,12 @@ var burger = require("../models/burger.js");
 	router.get("/", function(req, res) {
 		burger.selectAll(function(data) {
 
-			var burgerObj = {
+			var burgerHBSObject = {
 				burger: data
 			};
 
-			console.log("Handlebar Key & Val: " + burgerObj);
-			res.render("index", burgerObj);
+			console.log("Handlebar Key & Val: " + burgerHBSObject);
+			res.render("index", burgerHBSObject);
 		});
 	});
 
