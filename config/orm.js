@@ -1,5 +1,5 @@
 // REQUIRED EXT FILES & PACKAGES
-var connection = require("../config/connection.js");
+var connection = require("./connection.js");
 
 
 
@@ -7,19 +7,19 @@ var connection = require("../config/connection.js");
 var orm = {
 
 	// SELECT ALL FUNCTION
-		selectAll: function(tableName, cb) {
+		selectAll: function(tableName, cb1) {
 
-			var queryString = "SELECT * FROM ??";
+			var queryString = "SELECT * FROM " + tableName + ";";
 			console.log("Select All Query :" + queryString);
 
-			connection.query(queryString, [tableName], function(err, result) {
+			connection.query(queryString, function(err, result) {
 				
 				if (err) {
 					throw err;
 				}
 
-				cb(result);
-				console.log("SELECT ALL RESULT: " + result);
+				cb1(result);
+				console.log("SELECT ALL RESULT: ", result);
 			
 			});// close SELECT ALL SQL query
 		},// close selectAll funct
@@ -27,7 +27,7 @@ var orm = {
 
 
 	// INSERT ONE FUNCTION ("Add New Burger")
-		insertOne: function(tableName, cols, vals, cb) {
+		insertOne: function(tableName, cols, vals, cb2) {
 
 			var queryString = "INSERT INTO ?? (burger_name, devoured)";
 			queryString += " VALUES ('?', '?')";
@@ -39,7 +39,7 @@ var orm = {
 					throw err;
 				}
 
-				cb(result);
+				cb2(result);
 				console.log(result);
 			
 			});// close INSERT NEW SQL query
@@ -49,7 +49,7 @@ var orm = {
 
 	// UPDATE ONE FUNCTION ("Devour")
 	// needs to be in DESC Order by ID
-		updateOne: function(tableName, objColVals, condition, cb) {
+		updateOne: function(tableName, objColVals, condition, cb3) {
 
 			var queryString = "UPDATE ?? SET devoured = 'true' WHERE id = ?";
 			queryString += " ORDER BY id DESC";
@@ -61,7 +61,7 @@ var orm = {
 					throw err;
 				}
 
-				cb(result);
+				cb3(result);
 				console.log(result);
 
 			
@@ -69,7 +69,7 @@ var orm = {
 		},// close updateOne funct
 
 	// DELETE FUNCTION
-		delete: function(tableName, condition, cb) {
+		delete: function(tableName, condition, cb4) {
 
 			var queryString = "DELETE FROM ?? WHERE ? = ?";
 
@@ -81,7 +81,7 @@ var orm = {
 					throw err;
 				}
 
-				cb(result);
+				cb4(result);
 				console.log(result)
 
 			})// close DELETE SQL query

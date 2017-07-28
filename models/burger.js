@@ -5,34 +5,35 @@ var orm = require("../config/orm.js");
 // BURGER SPECIFIC INPUT ORM FUNCTIONS
 var burger = {
 
-	selectAll: function(cb) {
+	selectAll: function(cb1) {
+		console.log("SELECT ALL FUNCT WORKING");
 		orm.selectAll("burgers", function(res) {
 
-			cb(res);
+			cb1(res);
 		
 		});// close ORM to burgers table
 	},// close selectAll func.
 
-	insertOne: function(cols, vals, cb) {
+	insertOne: function(cols, vals, cb2) {
 		orm.insertOne("burgers", cols, vals, function(res) {
 
-			cb(res);
+			cb2(res);
 
 		});// close ORM to burgers table
 	},// close insertOne func.
 
-	updateOne: function(objColVals, condition, cb) {
+	updateOne: function(objColVals, condition, cb3) {
 		orm.updateOne("burgers", objColVals, condition, function(res) {
 
-			cb(res);
+			cb3(res);
 
 		});// close ORM to burgers table
 	},	// close updateOne func.
 
-	delete: function(condition, cb) {
+	delete: function(condition, cb4) {
 		orm.delete("burgers", condition, function(res) {
 
-			cb(res);
+			cb4(res);
 
 		});// close ORM to burgers table
 	}// close delete func.

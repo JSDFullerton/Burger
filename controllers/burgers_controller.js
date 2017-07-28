@@ -7,11 +7,15 @@ var burger = require("../models/burger.js");
 
 
 
+
 // CREATE ROUTES
 
 	// GET ROUTE - Display Burgers
 	router.get("/", function(req, res) {
+		console.log("TEST ROUTE", burger.selectAll());
+
 		burger.selectAll(function(data) {
+			console.log("TEST SELECT ALL 2nd Funct:");
 
 			var burgerHBSObject = {
 				burger: data
